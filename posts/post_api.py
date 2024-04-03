@@ -78,6 +78,34 @@ async def all_photos():
     result = all_photos_db()
     return result
 
-# Остальные функции вы сами я верю в вас!!!
-# Посмотрите в postservice.py!
-# Вам 15 минут!!
+
+# Запрос на удаление фото определенного поста
+@post_router.put('/delete-post-photo')
+async def delete_post_photo(post_id: int):
+    result = delete_post_photo_db(post_id)
+
+    if result:
+        return {'message': result}
+    else:
+        return {'message': 'Что то пошло не так'}
+
+
+# Запрос на добавление лайка к посту
+@post_router.put('/add-like')
+async def add_like(post_id: int):
+    result = add_like_post_db(post_id)
+    if result:
+        return {'message': result}
+    else:
+        return {'message': 'Что то пошло не так'}
+
+
+# Запрос на удаление лайка к посту
+@post_router.put('/delete-like')
+async def delete_like(post_id: int):
+    result = unlike_post_db(post_id)
+    if result:
+        return {'message': result}
+    else:
+        return {'message': 'Что то пошло не так'}
+

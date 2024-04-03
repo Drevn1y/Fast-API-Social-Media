@@ -2,7 +2,7 @@ from pydantic import BaseModel
 from datetime import datetime
 
 
-# Валидатор для публикации поста
+# Валидатор для публикации
 class PublicPostValidator(BaseModel):
     user_id: int
     post_text: str
@@ -12,4 +12,3 @@ class PublicPostValidator(BaseModel):
 class EditPostValidator(BaseModel):
     post_id: int
     new_text: str
-#     user_id????

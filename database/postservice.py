@@ -32,7 +32,7 @@ def add_new_post_db(user_id, post_text):
     return f'Успешно добавлен {new_post.post_id}'
 
 
-# Изменить текст к публикацию
+# Изменить текст к публикации
 def edit_post_text_db(post_id, new_text):
     db = next(get_db())
 
@@ -103,7 +103,6 @@ def delete_post_photo_db(post_id):
     new_photo = db.query(PostPhoto).filter_by(post_id=post_id).first()
 
     if new_photo:
-        # Если не будет работать то Капзда Дильмуроду
         db.delete(new_photo.photo_path)
         db.commit()
 
